@@ -1,10 +1,10 @@
 {
   "name": "stickynote",
   "version": "1.0.0",
-  "description": "A minimal Electron application with TypeScript",
+  "description": "便利贴",
   "main": "./out/main/index.js",
-  "author": "example.com",
-  "homepage": "https://www.electronjs.org",
+  "author": "wjw",
+  "homepage": "https://github.com/xiaoguyu/stickyNote/",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",

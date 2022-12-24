@@ -1,4 +1,4 @@
-import { contextBridge } from 'electron';
+import { contextBridge, ipcRenderer } from 'electron';
 import { electronAPI } from '@electron-toolkit/preload';
 
 // Custom APIs for renderer
@@ -20,3 +20,10 @@ if (process.contextIsolated) {
   // @ts-ignore (define in dts)
   window.api = api;
 }
+
+contextBridge.exposeInMainWorld('electronApi', {
+  // 设置窗口置顶
+  setOntop: (flgTop: boolean) => ipcRenderer.send('set-optop', flgTop),
+  // 新建窗口
+  createTab: () => ipcRenderer.send('create-tab')
+});

@@ -1,189 +1,113 @@
+.bgred {
+  background-color: red;
+}
+
 body {
+  margin: 0px 8px 0px 8px;
+  background-color: rgb(255, 247, 209);
+}
+
+.menu {
+  /* 菜单可拖动 */
+  -webkit-app-region: drag;
   display: flex;
-  flex-direction: column;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;
-  color: #86a5b1;
-  background-color: #2f3241;
+  border-bottom: 1px solid #aaa;
 }
 
-* {
-  padding: 0;
-  margin: 0;
+.menu img {
+  /* 菜单可拖动 */
+  -webkit-app-region: no-drag;
+  width: 18px;
+  padding: 3px;
 }
 
-ul {
-  list-style: none;
+.menu-item {
+  text-align: center;
+  background-color: red;
+  width: 45px;
+  margin: 5px;
 }
 
-code {
-  font-weight: 600;
-  padding: 3px 5px;
-  border-radius: 2px;
-  background-color: #26282e;
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-  font-size: 85%;
+.commandZone {
+  border-top: 1px solid #aaa;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 0px;
+  left: 8px;
+  right: 8px;
 }
 
-a {
-  color: #9feaf9;
-  font-weight: 600;
+.tool {
+  margin: 3px;
+}
+
+.icon {
   cursor: pointer;
-  text-decoration: none;
-  outline: none;
+  color: #999;
 }
 
-a:hover {
-  border-bottom: 1px solid;
+.icon:hover {
+  background-color: #b8b8b863;
 }
 
 .container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  max-width: 840px;
-  margin: 0 auto;
-  padding: 15px 30px 0 30px;
 }
 
-.versions {
-  margin: 0 auto;
-  float: none;
-  clear: both;
-  overflow: hidden;
-  font-family: 'Menlo', 'Lucida Console', monospace;
-  color: #c2f5ff;
-  line-height: 1;
-  transition: all 0.3s;
+.editor-container {
+  border: 1px solid #ccc;
+  padding: 15px;
+  outline: none;
+  line-height: 1.8;
+  max-height: 500px;
+  overflow-y: auto;
+
+  height: 295px;
 }
 
-.versions li {
-  display: block;
-  float: left;
-  border-right: 1px solid rgba(194, 245, 255, 0.4);
-  padding: 0 20px;
-  font-size: 13px;
-  opacity: 0.8;
+.editor-container::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 2px;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
 }
 
-.versions li:last-child {
-  border: none;
+.editor-container::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(97, 184, 179, 0.1);
+  background: #78b4b4;
 }
 
-.hero-logo {
-  margin-top: -0.4rem;
-  transition: all 0.3s;
+.editor-container::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(87, 175, 187, 0.1);
+  border-radius: 10px;
+  background: #ededed;
 }
 
-@media (max-width: 840px) {
-  .versions {
-    display: none;
-  }
-
-  .hero-logo {
-    margin-top: -1.5rem;
-  }
+.editor-container:focus {
+  border: 1px solid #999;
 }
 
-.hero-text {
-  font-weight: 400;
-  color: #c2f5ff;
-  text-align: center;
-  margin-top: -0.5rem;
-  margin-bottom: 10px;
+.btn {
+  color: black;
+  padding: 0 5px;
+  display: inline;
+  cursor: pointer;
+  font-size: 12px;
+  height: 21px;
 }
 
-@media (max-width: 660px) {
-  .hero-logo {
-    display: none;
-  }
-
-  .hero-text {
-    margin-top: 20px;
-  }
+select {
+  width: 60px;
+  height: 21px;
 }
 
-.hero-tagline {
-  text-align: center;
-  margin-bottom: 14px;
-}
-
-.links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.links a {
-  font-weight: 500;
-}
-
-.links .link-item {
-  padding: 0 4px;
-}
-
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -6px;
-}
-
-.features .feature-item {
-  width: 33.33%;
-  box-sizing: border-box;
-  padding: 6px;
-}
-
-.features article {
-  background-color: rgba(194, 245, 255, 0.1);
-  border-radius: 8px;
-  box-sizing: border-box;
-  padding: 12px;
-  height: 100%;
-}
-
-.features span {
-  color: #d4e8ef;
-  word-break: break-all;
-}
-
-.features .title {
-  font-size: 17px;
-  font-weight: 500;
-  color: #c2f5ff;
-  line-height: 22px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.features .detail {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 22px;
-  margin-top: 6px;
-}
-
-@media (max-width: 660px) {
-  .features .feature-item {
-    width: 50%;
-  }
-}
-
-@media (max-width: 480px) {
-  .links {
-    flex-direction: column;
-    line-height: 32px;
-  }
-
-  .links .link-dot {
-    display: none;
-  }
-
-  .features .feature-item {
-    width: 100%;
-  }
+.editor-editable {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  cursor: pointer;
 }

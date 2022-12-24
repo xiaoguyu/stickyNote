@@ -1,22 +1,37 @@
+let flgTop = false;
+
 export function init(): void {
   window.addEventListener('DOMContentLoaded', () => {
-    doAThing();
+    // 可以用于初始化
+
+    // 新增按钮
+    const addDiv = document.getElementById('add-div');
+    if (addDiv) {
+      addDiv.onclick = () => {
+        window.electronApi.createTab();
+      };
+    }
+    // 置顶按钮
+    const ontopDiv = document.getElementById('ontop-div');
+    if (ontopDiv) {
+      ontopDiv.onclick = () => {
+        flgTop = !flgTop;
+        window.electronApi.setOntop(flgTop);
+        if (flgTop) {
+          (<HTMLImageElement>ontopDiv).src = './assets/icons/top-selected.svg';
+        } else {
+          (<HTMLImageElement>ontopDiv).src = './assets/icons/top.svg';
+        }
+      };
+    }
+    // 关闭按钮
+    const closeDiv = document.getElementById('close-div');
+    if (closeDiv) {
+      closeDiv.onclick = () => {
+        window.close();
+      };
+    }
   });
-}
-
-function doAThing(): void {
-  const versions = window.electron.process.versions;
-  replaceText('.electron-version', `Electron v${versions.electron}`);
-  replaceText('.chrome-version', `Chromium v${versions.chrome}`);
-  replaceText('.node-version', `Node v${versions.node}`);
-  replaceText('.v8-version', `V8 v${versions.v8}`);
-}
-
-function replaceText(selector: string, text: string): void {
-  const element = document.querySelector<HTMLElement>(selector);
-  if (element) {
-    element.innerText = text;
-  }
 }
 
 init();

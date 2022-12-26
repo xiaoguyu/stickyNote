@@ -7,6 +7,7 @@ declare global {
     electronApi: {
       setOntop(boolean): void;
       createTab(): void;
+      onEditorContainer(callback: (event: IpcRendererEvent, arg) => void): void;
     };
   }
 }

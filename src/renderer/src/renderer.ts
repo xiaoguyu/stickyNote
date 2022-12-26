@@ -34,4 +34,12 @@ export function init(): void {
   });
 }
 
+// main -> rander，渲染内容
+window.electronApi.onEditorContainer((_event, value) => {
+  const editor = document.getElementById('editor');
+  if (editor && value) {
+    editor.innerHTML = value;
+  }
+});
+
 init();

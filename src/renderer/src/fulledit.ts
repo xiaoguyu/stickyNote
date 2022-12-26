@@ -54,7 +54,7 @@ const addEventListener = (commandName) => {
     });
 };
 
-const defaultHtml = '<h2><font face="STKaiti">Vue.js 是什么</font></h2>';
+const defaultHtml = 'Vue.js 是什么';
 
 const commandMap = {
   undo: {
@@ -257,7 +257,6 @@ const htmlList = commands.map((commandName) => {
   if (command.render) {
     return command.render();
   }
-  // <button class="btn tool" id="${commandName}">${command.name}</button>
   return `
       <img class="icon tool" id="${commandName}" title="${command.name}" 
         src="${util.getAssetsFile('icons/' + commandName + '.svg')}"/>
@@ -266,13 +265,9 @@ const htmlList = commands.map((commandName) => {
 if (commandZone) {
   commandZone.innerHTML = htmlList.join('\n');
 }
-if (editor) {
-  editor.innerHTML = defaultHtml;
-
-  // editor.addEventListener('mouseup', () => {
-  //   console.log(document.getSelection());
-  // });
-}
+// if (editor) {
+//   editor.innerHTML = defaultHtml;
+// }
 
 setTimeout(() => {
   commands.forEach((commandName) => addEventListener(commandName));

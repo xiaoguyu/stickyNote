@@ -22,8 +22,12 @@ if (process.contextIsolated) {
 }
 
 contextBridge.exposeInMainWorld('electronApi', {
+  /*** render->main ***/
   // 设置窗口置顶
   setOntop: (flgTop: boolean) => ipcRenderer.send('set-optop', flgTop),
   // 新建窗口
-  createTab: () => ipcRenderer.send('create-tab')
+  createTab: () => ipcRenderer.send('create-tab'),
+  /*** main->render ***/
+  // 渲染内容
+  onEditorContainer: (callback) => ipcRenderer.on('editor-container', callback)
 });

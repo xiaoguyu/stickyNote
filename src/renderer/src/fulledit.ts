@@ -246,7 +246,6 @@ const commands = ['bold', 'italic', 'underline', 'strikeThrough', 'insertUnorder
 
 const commandZone = document.getElementById('commandZone');
 const editor = document.getElementById('editor');
-const container = document.getElementById('container');
 
 const htmlList = commands.map((commandName) => {
   const command = commandMap[commandName];
@@ -265,8 +264,6 @@ if (commandZone) {
   commandZone.innerHTML = htmlList.join('\n');
 }
 if (editor) {
-  // editor.innerHTML = defaultHtml;
-
   let timer: NodeJS.Timeout;
   editor.oninput = () => {
     if (timer) clearTimeout(timer);
@@ -277,24 +274,6 @@ if (editor) {
   };
   // 编辑框获取焦点
   editor.focus();
-
-  editor.onfocus = () => {
-    if (container) {
-      container.style.bottom = '31px';
-    }
-    if (commandZone) {
-      commandZone.style.display = 'flex';
-    }
-  };
-
-  editor.onblur = () => {
-    if (container) {
-      container.style.bottom = '0px';
-    }
-    if (commandZone) {
-      commandZone.style.display = 'none';
-    }
-  };
 }
 
 setTimeout(() => {

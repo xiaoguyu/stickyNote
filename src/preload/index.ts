@@ -33,5 +33,7 @@ contextBridge.exposeInMainWorld('electronApi', {
   openHistory: () => ipcRenderer.send('open-history'),
   /*** main->render ***/
   // 渲染内容
-  onEditorContainer: (callback) => ipcRenderer.on('editor-container', callback)
+  onEditorContainer: (callback) => ipcRenderer.on('editor-container', callback),
+  // 窗口获取、失去焦点事件
+  getFocus: (callback) => ipcRenderer.on('get-focus', callback)
 });

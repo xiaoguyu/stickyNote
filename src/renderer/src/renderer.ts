@@ -1,3 +1,4 @@
+import util from './utils/utils';
 let flgTop = false;
 
 export function init(): void {
@@ -25,9 +26,9 @@ export function init(): void {
         flgTop = !flgTop;
         window.electronApi.setOntop(flgTop);
         if (flgTop) {
-          (<HTMLImageElement>ontopDiv).src = './assets/icons/top-selected.svg';
+          (<HTMLImageElement>ontopDiv).src = util.getAssetsFile('icons/top-selected.svg');
         } else {
-          (<HTMLImageElement>ontopDiv).src = './assets/icons/top.svg';
+          (<HTMLImageElement>ontopDiv).src = util.getAssetsFile('icons/top.svg');
         }
       };
     }
@@ -46,6 +47,27 @@ window.electronApi.onEditorContainer((_event, value) => {
   const editor = document.getElementById('editor');
   if (editor && value) {
     editor.innerHTML = value;
+  }
+});
+
+window.electronApi.getFocus((_event, flgFocus) => {
+  const container = document.getElementById('container');
+  const commandZone = document.getElementById('commandZone');
+
+  if (flgFocus) {
+    if (container) {
+      container.style.bottom = '31px';
+    }
+    if (commandZone) {
+      commandZone.style.display = 'flex';
+    }
+  } else {
+    if (container) {
+      container.style.bottom = '0px';
+    }
+    if (commandZone) {
+      commandZone.style.display = 'none';
+    }
   }
 });
 

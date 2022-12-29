@@ -62,6 +62,14 @@ function createWindow(_width = 300, _height = 300, _x?: number, _y?: number, _ui
   mainWindow.on('close', () => {
     mainClose(mainWindow);
   });
+  // 获取焦点，显示下面的工具栏
+  mainWindow.on('focus', () => {
+    mainWindow.webContents.send('get-focus', true);
+  });
+  // 失去焦点，隐藏下面的工具栏
+  mainWindow.on('blur', () => {
+    mainWindow.webContents.send('get-focus', false);
+  });
 
   mainWindow.on('ready-to-show', () => {
     // 渲染内容

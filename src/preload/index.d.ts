@@ -19,6 +19,8 @@ declare global {
       /*** main->render ***/
       // 渲染内容
       onEditorContainer(callback: (event: IpcRendererEvent, arg) => void): void;
+      // 窗口获取、失去焦点事件
+      getFocus(callback: (event: IpcRendererEvent, flgFocus: boolean) => void): void;
 
       /* history页面使用 */
       /*** render->main ***/

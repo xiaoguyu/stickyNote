@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>history</title>
+
+  <link href="./assets/history.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="menu">
+    <div class="left">
+      <img class="icon tool" id="add-div" title="新增" src="./assets/icons/add.svg" />
+    </div>
+    <div class="rigth">
+      <img class="icon tool" id="close-div" title="关闭" src="./assets/icons/close.svg" />
+    </div>
+  </div>
+  <div class="search-bar">
+    <input id="search-input" class="search-input" placeholder="搜索..." />
+    <img id="search-icon" class="search-icon" src="./assets/icons/search.svg"></img>
+  </div>
+  <div class="content-list" id="content-list">
+    <!-- <div class="content-div">
+      <div class="mask"></div>
+      <div class="time">2022-12-23 16:06:55</div>
+      <div class="content">dsfdsfsdfdsfsfsdfdsfdsfsdf</div>
+    </div> -->
+  </div>
+
+  <!-- 右击菜单 -->
+  <ul class="auxclick-menu" id="auxclick-menu" uid="sssss">
+    <li>显示笔记</li>
+    <li>删除笔记</li>
+  </ul>
+</body>
+
+<script type="module" src="./src/history.ts"></script>
+
+</html>

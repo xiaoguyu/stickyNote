@@ -1,0 +1,188 @@
+body::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 5px;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+
+body::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(97, 184, 179, 0.1);
+  background: #6a7979;
+}
+
+body::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(87, 175, 187, 0.1);
+  border-radius: 10px;
+  background: #ededed;
+}
+
+.menu {
+  /* 菜单可拖动 */
+  -webkit-app-region: drag;
+  margin-top: -8px;
+}
+
+.menu .left {
+  display: inline;
+  width: 50%;
+  margin-left: -8px;
+}
+
+.menu .rigth {
+  display: inline;
+  width: 50%;
+  float: right;
+  margin-right: -8px;
+}
+
+.rigth .icon {
+  float: right;
+}
+
+.menu .icon:hover {
+  background-color: rgb(238, 238, 238);
+}
+
+.menu img {
+  /* 菜单可拖动 */
+  -webkit-app-region: no-drag;
+  width: 18px;
+  padding: 8px;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-input {
+  background-color: rgb(238, 238, 238);
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  /* 去除聚焦框 */
+  outline: none;
+  padding-left: 10px;
+  height: 30px;
+}
+
+.search-icon {
+  position: absolute;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  right: 0px;
+  top: 0px;
+  box-sizing: border-box;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+.content-list {
+  position: absolute;
+  bottom: 0px;
+  top: 72px;
+  left: 8px;
+  right: 8px;
+}
+
+.search-icon:hover {
+  background-color: rgb(222, 222, 222);
+}
+
+.content-div {
+  position: relative;
+  margin-top: 10px;
+  background: linear-gradient(135deg, rgb(255, 247, 209) 98%, transparent 0);
+  padding: 0px 10px 10px 10px;
+}
+
+.content-view {
+  background: linear-gradient(135deg, rgb(255, 247, 209) 98%, transparent 0);
+}
+
+.content-noview {
+  background: linear-gradient(135deg, rgb(255, 247, 209) 100%, transparent 0);
+}
+
+.content-view::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background: linear-gradient(-45deg, transparent 50%, #9f9b9a4a 0);
+  width: 15px;
+  height: 15px;
+}
+
+.content-div .mask {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.content-view:hover .mask {
+  background: linear-gradient(135deg, rgb(110 110 110 / 13%) 98%, transparent 0);
+}
+
+.content-noview:hover .mask {
+  background: linear-gradient(135deg, rgb(110 110 110 / 13%) 100%, transparent 0);
+}
+
+.content-div .time {
+  text-align: right;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  padding-top: 3px;
+}
+
+.content-div .content {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 20px;
+  max-height: 120px;
+  font-size: 14px;
+  word-wrap: break-word;
+
+  overflow: hidden;
+  /*必须结合的属性,当内容溢出元素框时发生的事情*/
+  text-overflow: ellipsis;
+  /*可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本 。*/
+  display: -webkit-box;
+  /*必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。*/
+  -webkit-line-clamp: 5;
+  /*用来限制在一个块元素显示的文本的行数。*/
+  -webkit-box-orient: vertical;
+  /*必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。*/
+}
+
+.content-div .content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.auxclick-menu {
+  background-color: rgb(228, 226, 215);
+  width: 75px;
+  display: none;
+  /* 让当前的ul参照浏览器的边缘进行定位 */
+  position: absolute;
+  padding: 10px;
+  box-shadow: 0px 0px 2px black;
+  border-radius: 10px;
+}
+
+.auxclick-menu li {
+  list-style: none;
+  line-height: 33px;
+}
+
+.auxclick-menu li:hover {
+  background-color: rgb(214, 213, 208);
+}

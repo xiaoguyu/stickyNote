@@ -1,12 +1,15 @@
 # stickynote
 
-A minimal Electron application with TypeScript
+模仿window的便筏使用 electron 框架开发的便利贴
 
-## Recommended IDE Setup
+## 技术栈
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+electron + typescript + electron-vite
 
-## Project Setup
+编辑器参考了
+https://juejin.cn/post/7018355368996634638
+
+## 快速启动
 
 ### Install
 

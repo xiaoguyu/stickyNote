@@ -1,13 +1,9 @@
-.bgred {
-  background-color: red;
-}
-
 html {
   height: 100%;
 }
 
 body {
-  margin: 0px 8px 0px 8px;
+  margin: 0px;
   height: 100%;
   background-color: rgb(255, 247, 209);
 }
@@ -15,25 +11,34 @@ body {
 .menu {
   /* 菜单可拖动 */
   -webkit-app-region: drag;
-  display: flex;
-  border-bottom: 1px solid #aaa;
+  background-color: rgb(255, 242, 171);
+  height: 32px;
+}
 
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 0;
+.menu .left {
+  display: inline;
+  width: 50%;
+}
+
+.menu .rigth {
+  display: inline;
+  width: 50%;
+  float: right;
+}
+
+.menu .rigth img {
+  float: right;
 }
 
 .menu img {
   /* 菜单可拖动 */
   -webkit-app-region: no-drag;
   width: 18px;
-  padding: 3px;
+  padding: 7px;
 }
 
 .menu-item {
   text-align: center;
-  background-color: red;
   width: 45px;
   margin: 5px;
 }
@@ -49,13 +54,10 @@ body {
   right: 0px;
 }
 
-.tool {
-  margin: 3px;
-}
-
 .icon {
   cursor: pointer;
   color: #999;
+  padding: 2px;
 }
 
 .icon:hover {
@@ -63,11 +65,9 @@ body {
 }
 
 .container {
-  /* height: 84%; */
-
   position: absolute;
-  left: 8px;
-  right: 8px;
+  left: 2px;
+  right: 2px;
   top: 31px;
   bottom: 31px;
 }
@@ -77,9 +77,9 @@ body {
   line-height: 1.8;
   overflow-y: auto;
   height: 100%;
-  /* TODO 测试用 */
-  /* background-color: gray; */
+  padding: 0px 5px;
 }
+
 /* div实现placeholder效果 */
 .editor-container:empty:before {
   content: attr(placeholder);

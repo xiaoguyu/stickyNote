@@ -23,15 +23,22 @@ if (process.contextIsolated) {
 
 contextBridge.exposeInMainWorld('electronApi', {
   /*** render->main ***/
-  // 设置窗口置顶
-  setOntop: (flgTop: boolean) => ipcRenderer.send('set-optop', flgTop),
   // 新建窗口
   createTab: (uid?: string) => ipcRenderer.send('create-tab', uid),
-  // 保存内容
-  saveContent: (content: string) => ipcRenderer.send('save-content', content),
-  // 打开历史页面
-  openHistory: () => ipcRenderer.send('open-history'),
+  // 右击菜单关闭窗口
+  closeTab: (uid: string) => ipcRenderer.send('close-tab', uid),
+  // 右击菜单（显示、关闭笔记）
+  viewTab: (flgView: boolean, uid: string) => ipcRenderer.send('view-tab', flgView, uid),
+  // electron-store的api
+  store: {
+    get(key) {
+      return ipcRenderer.sendSync('electron-store-get', key);
+    },
+    set(property, val) {
+      ipcRenderer.send('electron-store-set', property, val);
+    }
+    // Other method you want to add like has(), reset(), etc.
+  },
   /*** main->render ***/
-  // 渲染内容
-  onEditorContainer: (callback) => ipcRenderer.on('editor-container', callback)
+  rerender: (callback) => ipcRenderer.on('rerender', callback)
 });

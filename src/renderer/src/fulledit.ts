@@ -54,8 +54,6 @@ const addEventListener = (commandName) => {
     });
 };
 
-const defaultHtml = 'Vue.js 是什么';
-
 const commandMap = {
   undo: {
     name: '撤销',
@@ -248,6 +246,7 @@ const commands = ['bold', 'italic', 'underline', 'strikeThrough', 'insertUnorder
 
 const commandZone = document.getElementById('commandZone');
 const editor = document.getElementById('editor');
+const container = document.getElementById('container');
 
 const htmlList = commands.map((commandName) => {
   const command = commandMap[commandName];
@@ -258,16 +257,45 @@ const htmlList = commands.map((commandName) => {
     return command.render();
   }
   return `
-      <img class="icon tool" id="${commandName}" title="${command.name}" 
+      <img class="icon" id="${commandName}" title="${command.name}" 
         src="${util.getAssetsFile('icons/' + commandName + '.svg')}"/>
   `;
 });
 if (commandZone) {
   commandZone.innerHTML = htmlList.join('\n');
 }
-// if (editor) {
-//   editor.innerHTML = defaultHtml;
-// }
+if (editor) {
+  // editor.innerHTML = defaultHtml;
+
+  let timer: NodeJS.Timeout;
+  editor.oninput = () => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      // 将数据传mian存储
+      window.electronApi.saveContent(editor.innerHTML);
+    }, 200);
+  };
+  // 编辑框获取焦点
+  editor.focus();
+
+  editor.onfocus = () => {
+    if (container) {
+      container.style.bottom = '31px';
+    }
+    if (commandZone) {
+      commandZone.style.display = 'flex';
+    }
+  };
+
+  editor.onblur = () => {
+    if (container) {
+      container.style.bottom = '0px';
+    }
+    if (commandZone) {
+      commandZone.style.display = 'none';
+    }
+  };
+}
 
 setTimeout(() => {
   commands.forEach((commandName) => addEventListener(commandName));

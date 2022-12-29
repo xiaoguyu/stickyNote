@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Electron</title>
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
-    />
 
-    <link href="./assets/styles.css" type="text/css" rel="stylesheet" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>Electron</title>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'" />
 
-  <body>
-    <div class="menu">
-      <img class="icon tool" id="add-div" title="新增" src="./assets/icons/add.svg" />
-      <img class="icon tool" id="history-div" title="新增" src="./assets/icons/history.svg" />
-      <img class="icon tool" id="ontop-div" title="置顶" src="./assets/icons/top.svg" />
-      <img class="icon tool" id="close-div" title="关闭" src="./assets/icons/close.svg" />
+  <link href="./assets/styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="menu">
+    <div class="left">
+      <img class="icon" id="add-div" title="新增" src="./assets/icons/add.svg" />
+      <img class="icon" id="history-div" title="新增" src="./assets/icons/history.svg" />
+      <img class="icon" id="ontop-div" title="置顶" src="./assets/icons/top.svg" />
     </div>
-    <div class="container">
-      <div
-        class="editor-container"
-        id="editor"
-        placeholder="记笔记..."
-        contenteditable="true"
-      ></div>
+    <div class="rigth">
+      <img class="icon" id="close-div" title="关闭" src="./assets/icons/close.svg" />
     </div>
-    <div class="commandZone" id="commandZone"></div>
-  </body>
+  </div>
+  </div>
+  <div id="container" class="container">
+    <div class="editor-container" id="editor" placeholder="记笔记..." contenteditable="true"></div>
+  </div>
+  <div class="commandZone" id="commandZone"></div>
+</body>
 
-  <script type="module" src="./src/renderer.ts"></script>
-  <script type="module" src="./src/fulledit.ts"></script>
+<script type="module" src="./src/renderer.ts"></script>
+<script type="module" src="./src/fulledit.ts"></script>
+
 </html>

@@ -11,6 +11,13 @@ export function init(): void {
         window.electronApi.createTab();
       };
     }
+    // 打开历史页面按钮
+    const historyDiv = document.getElementById('history-div');
+    if (historyDiv) {
+      historyDiv.onclick = () => {
+        window.electronApi.openHistory();
+      };
+    }
     // 置顶按钮
     const ontopDiv = document.getElementById('ontop-div');
     if (ontopDiv) {
